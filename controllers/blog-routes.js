@@ -1,4 +1,5 @@
 const router = require("express").Router();
+const Blog = require("../models/Blog");
 
 const blogPost = [
   {
