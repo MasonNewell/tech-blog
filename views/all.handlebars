@@ -1,0 +1,12 @@
+<div class="blog-container">
+  {{#each blogPost as |blog|}}
+    <div>
+      <p>
+        {{blog.id}}
+        {{blog.post_title}}
+        {{blog.post_contents}}
+        {{blog.post_creator}}
+      </p>
+    </div>
+  {{/each}}
+</div>
