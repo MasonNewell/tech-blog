@@ -10,3 +10,32 @@
     </div>
   {{/each}}
 </div>
+
+{{! ADD blog post }}
+<div class="add-blog-container">
+  <h3> Add New Blog Post</h3>
+  {{! form }}
+  <form class="new-blog-form">
+    <label for="post_title"> Title: </label>
+    <textarea id="post_title" name="post_title" cols="30" rows="2">{{post_title}}
+    </textarea>
+    <br />
+    {{! Contents }}
+    <label for="post_contents"> Contents: </label>
+    <textarea
+      name="post_contents"
+      id="post_contents"
+      cols="30"
+      rows="10"
+    >{{post_contents}}</textarea>
+    <br />
+    <label for="post_creator"> Creator: </label>
+    <textarea id="post_creator" name="post_creator" rows="2" cols="30">
+      {{post_creator}}
+    </textarea>
+    <br />
+    <button type="submit" value="Submit">Submit</button>
+  </form>
+
+  <script src="/js/add-post.js"></script>
+</div>

@@ -18,11 +18,24 @@ router.get("/blog/:id", async (req, res) => {
       res.status(404).json({ message: "No blogpost with this id!" });
       return;
     }
-    // serialize data
     const blog = blogData.get({ plain: true });
     res.render("blog", blog);
   } catch (err) {
     res.status(500).json(err);
+  }
+});
+
+// Add new blog post
+router.post("/", async (req, res) => {
+  try {
+    const blogData = await Blog.create({
+      post_title: req.body.post_title,
+      post_contents: req.body.post_contents,
+      post_creator: req.body.post_creator,
+    });
+    res.status(200).json(blogData);
+  } catch (err) {
+    res.status(400).json(err);
   }
 });
 
