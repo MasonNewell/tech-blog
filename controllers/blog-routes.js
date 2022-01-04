@@ -1,5 +1,6 @@
 const router = require("express").Router();
 const Blog = require("../models/Blog");
+const User = require("../models/User");
 
 // Get All Blog Posts
 router.get("/", async (req, res) => {
@@ -39,4 +40,21 @@ router.post("/", async (req, res) => {
   }
 });
 
+// Get login page
+router.get("/login", async (req, res) => {
+  res.render("login");
+});
+
+// Sign in on login page
+router.post("/login", async (req, res) => {
+  try {
+    const loginData = await User.create({
+      email: req.body.email,
+      password: req.body.password,
+    });
+    res.status(200).json(loginData);
+  } catch (err) {
+    res.status(400).json(err);
+  }
+});
 module.exports = router;

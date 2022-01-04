@@ -15,7 +15,7 @@ app.engine("handlebars", hbs.engine);
 app.set("view engine", "handlebars");
 // ALLOWS additonal method on response object (res.render)
 
-//
+//  Middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, "public")));
