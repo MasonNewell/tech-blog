@@ -1,11 +1,17 @@
-<div>
-  <h5>BLOGS</h5>
+<div class="d-flex justify-content-center p-2">
   {{#each blogData}}
-    <div>
-      <p>{{post_title}}</p>
-      <p>{{post_contents}}</p>
-      <p>{{user.name}}</p>
-      <p>{{date_created}}</p>
+    <div class="card text-center">
+      <div class="card-header">{{post_title}}</div>
+      <div class="card-body">
+        <div class="card-title">Posted by:
+          {{user.name}}
+          on
+          {{date_created}}
+        </div>
+        <p class="card-text">
+          {{post_contents}}
+        </p>
+      </div>
     </div>
   {{/each}}
 </div>
