@@ -7,11 +7,11 @@ const handleDelete = async (event) => {
 };
 
 // Update card
-const updatePost = async (event) => {
-  event.preventDefault();
-  const post_title = document.querySelector('input[name="post_title"]').value.trim();
-  const post_contents = document.querySelector('input[name="post_content"]').value.trim();
+async function updatePost(event) {
+  // event.preventDefault();
   const id = event.target.id;
+  const post_title = document.querySelector("#post_title").value.trim();
+  const post_contents = document.querySelector("#post_contents").value.trim();
   const response = await fetch(`/blogs/${id}`, {
     method: "PUT",
     body: JSON.stringify({
@@ -21,13 +21,11 @@ const updatePost = async (event) => {
     headers: { "Content-Type": "application/json" },
   });
   if (response.ok) {
-    alert("hereee");
     document.location.replace("/blogs");
   } else {
     alert("Failed to update blog");
   }
-  alert("jsebd");
-};
+}
 
-document.querySelector(".update-btn").addEventListener("submit", updatePost);
+document.querySelector(".update-btn").addEventListener("click", updatePost);
 document.querySelector(".del-btn").addEventListener("click", handleDelete);

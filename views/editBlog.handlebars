@@ -9,14 +9,14 @@
     <p class="card-text">
       {{post_contents}}
     </p>
-    <div class="btn-group">
+    {{!-- <div class="btn-group">
       <button type="button" class="btn btn-secondary" id={{id}}>Edit</button>
-    </div>
+    </div> --}}
     <button class="btn btn-warning del-btn" id={{id}}>Delete</button>
   </div>
 </div>
 
-<div>
+<div class="d-flex justify-content-center">
   <form class="edit-blog-form">
     <div>
       <label for="post_title"></label>
@@ -26,7 +26,7 @@
       <label for="post_contents"></label>
       <input type="text" name="post_contents" id="post_contents" />
     </div>
-    <button class="btn btn-info update-btn" id={{id}}>Confirm</button>
+    <button class="btn btn-info update-btn w-100" id="{{id}}">Update</button>
   </form>
 </div>
 

@@ -62,23 +62,21 @@ router.post("/", async (req, res) => {
     res.status(500).json(error);
   }
 });
+
 // Update
-router.put("/:id", (req, res) => {
-  Blog.update(
+router.put("/:id", async (req, res) => {
+  const blogData = await Blog.update(
     {
-      post_title: req.params.post_title,
-      post_contents: req.params.post_contents,
+      post_title: req.body.post_title,
+      post_contents: req.body.post_contents,
     },
     {
       where: {
         id: req.params.id,
       },
     }
-  )
-    .then((updatedBlog) => {
-      res.json(updatedBlog);
-    })
-    .catch((error) => res.json(error));
+  );
+  return res.json(blogData);
 });
 
 module.exports = router;
