@@ -1,17 +1,19 @@
 <div class="d-flex justify-content-center p-2">
   {{#each blogData}}
-    <div class="card text-center">
-      <div class="card-header">{{post_title}}</div>
-      <div class="card-body">
-        <div class="card-title">Posted by:
-          {{user.name}}
-          on
-          {{date_created}}
+    <a class="list-group-item" href="/blogs/{{id}}">
+      <div class="card text-center">
+        <div class="card-header">{{post_title}}</div>
+        <div class="card-body">
+          <div class="card-title">Posted by:
+            {{user.name}}
+            on
+            {{date_created}}
+          </div>
+          <p class="card-text">
+            {{post_contents}}
+          </p>
         </div>
-        <p class="card-text">
-          {{post_contents}}
-        </p>
       </div>
-    </div>
+    </a>
   {{/each}}
 </div>

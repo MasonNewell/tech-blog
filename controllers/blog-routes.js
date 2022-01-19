@@ -2,7 +2,6 @@ const router = require("express").Router();
 const { User, Blog } = require("../models");
 const withAuth = require("../utils/auth.js");
 
-//  Blog/
 // GET All Blog Posts
 // ADD WITH AUTH
 router.get("/", async (req, res) => {
@@ -18,8 +17,37 @@ router.get("/", async (req, res) => {
 // GET one blog
 router.get("/:id", async (req, res) => {
   try {
-    const blogData = await Blog.findByPk(req.params.id);
-    res.render("blogs", { blogData });
+    const blogData = await Blog.findByPk(req.params.id, {
+      include: [
+        {
+          model: User,
+          attributes: ["name"],
+        },
+      ],
+    });
+    const blog = blogData.get({ plain: true });
+    res.render("editBlog", {
+      blog,
+      ...blog,
+      // loggedIn: req.session.loggedIn
+    });
+  } catch (error) {
+    res.status(500).json(error);
+  }
+});
+
+router.delete("/:id", async (req, res) => {
+  try {
+    const blogData = await Blog.destroy({
+      where: {
+        id: req.params.id,
+      },
+    });
+    if (!blogData) {
+      res.status(404).json({ message: "no blog with that id" });
+      return;
+    }
+    res.status(200).json(blogData);
   } catch (error) {
     res.status(500).json(error);
   }
