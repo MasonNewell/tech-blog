@@ -1,26 +1,30 @@
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Login</title>
-  </head>
-  <body>
+{{! Sign Up }}
+<div>
+  <form class="signup-form">
     <div>
-      <form class="login-form">
-        <div>
-          <label for="email-login">Email:</label>
-          <input type="form-input" type="text" id="email-login" />
-        </div>
-        <div>
-          <label for="password-login">Password</label>
-          <input type="form-input" type="text" id="password-login" />
-        </div>
-        <div>
-          <button type="submit">Signup</button>
-        </div>
-      </form>
+      <label for="username">username:</label>
+      <input type="form-input" type="text" id="username" />
     </div>
-    <script src="/js/login.js"></script>
-  </body>
-</html>
+    <div>
+      <label for="password">Password</label>
+      <input type="form-input" type="text" id="password" />
+    </div>
+    <div>
+      <button type="submit">Signup</button>
+    </div>
+  </form>
+</div>
+
+{{! Sign In }}
+<div>
+  <form class="sign-in">
+    <label for="email-login">Email:</label>
+    <input type="form-input" type="email" id="email-login" />
+    {{! password }}
+    <label for="password-login">Password: </label>
+    <input type="form-input" type="password" id="password-login" />
+    {{! sub }}
+    <button type="submit">Signup</button>
+  </form>
+</div>
+<script src="./js/login.js"></script>
