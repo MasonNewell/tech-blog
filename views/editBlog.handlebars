@@ -9,7 +9,25 @@
     <p class="card-text">
       {{post_contents}}
     </p>
-    <button class="btn btn-secondary del-btn" id={{id}}>DELETE</button>
+    <div class="btn-group">
+      <button type="button" class="btn btn-secondary" id={{id}}>Edit</button>
+    </div>
+    <button class="btn btn-warning del-btn" id={{id}}>Delete</button>
   </div>
 </div>
+
+<div>
+  <form class="edit-blog-form">
+    <div>
+      <label for="post_title"></label>
+      <input name="post_title" type="text" id="post_title" />
+    </div>
+    <div>
+      <label for="post_contents"></label>
+      <input type="text" name="post_contents" id="post_contents" />
+    </div>
+    <button class="btn btn-info update-btn" id={{id}}>Confirm</button>
+  </form>
+</div>
+
 <script src="/js/blog.js"></script>

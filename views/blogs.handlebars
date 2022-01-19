@@ -1,19 +1,34 @@
 <div class="d-flex justify-content-center p-2">
-  {{#each blogData}}
-    <a class="list-group-item" href="/blogs/{{id}}">
-      <div class="card text-center">
-        <div class="card-header">{{post_title}}</div>
-        <div class="card-body">
-          <div class="card-title">Posted by:
-            {{user.name}}
-            on
-            {{date_created}}
+  <div class="col-12">
+    {{#each blogData}}
+      <a class="list-group-item" href="/blogs/{{id}}">
+        <div class="card text-center">
+          <div class="card-header">{{post_title}}</div>
+          <div class="card-body">
+            <div class="card-title">Posted by:
+              {{user.name}}
+              on
+              {{date_created}}
+            </div>
+            <p class="card-text">
+              {{post_contents}}
+            </p>
           </div>
-          <p class="card-text">
-            {{post_contents}}
-          </p>
         </div>
-      </div>
-    </a>
-  {{/each}}
+      </a>
+    {{/each}}
+  </div>
 </div>
+<div class="p-5">
+  <form class="new-blog-form p-3">
+    <div class="p-2">
+      <input type="text" class="form-control" placeholder="Title" id="post_title" />
+    </div>
+    <div class="p-2 py-2">
+      <input type="text" class="form-control" placeholder="Details" id="post_contents" />
+    </div>
+    <button class="btn btn-primary" type="submit">Add Blog</button>
+  </form>
+</div>
+
+<script src="/js/add-post.js"></script>
