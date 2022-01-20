@@ -17,19 +17,13 @@ router.get("/", withAuth, async (req, res) => {
 router.get("/:id", async (req, res) => {
   try {
     const blogData = await Blog.findByPk(req.params.id, {
-      include: [
-        {
-          model: User,
-          attributes: ["name"],
-        },
-      ],
+      include: [{ model: User }],
     });
     const blog = blogData.get({ plain: true });
     res.render("editBlog", {
       blog,
       loggedIn: req.session.loggedIn,
       ...blog,
-      // loggedIn: req.session.loggedIn
     });
   } catch (error) {
     res.status(500).json(error);
@@ -56,7 +50,11 @@ router.delete("/:id", async (req, res) => {
 
 router.post("/", async (req, res) => {
   try {
-    const blogData = await Blog.create(req.body);
+    const blogData = await Blog.create({
+      post_title: req.body.post_title,
+      post_contents: req.body.post_contents,
+      user_id: req.session.user_id,
+    });
     res.status(200).json(blogData);
   } catch (error) {
     res.status(500).json(error);

@@ -5,7 +5,7 @@ router.get("/", async (req, res) => {
   if (req.session.loggedIn) {
     await req.session.destroy(() => res.status(200).end());
   } else {
-    res.status(400).end();
+    res.status(404).end();
   }
 });
 

@@ -8,7 +8,6 @@ const handleDelete = async (event) => {
 
 // Update card
 async function updatePost(event) {
-  // event.preventDefault();
   const id = event.target.id;
   const post_title = document.querySelector("#post_title").value.trim();
   const post_contents = document.querySelector("#post_contents").value.trim();
