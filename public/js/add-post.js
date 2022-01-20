@@ -14,7 +14,7 @@ async function formHandler(event) {
   });
 
   if (response.ok) {
-    document.location.replace("/");
+    document.location.replace("/blogs");
   } else {
     alert("Failed to add post");
   }

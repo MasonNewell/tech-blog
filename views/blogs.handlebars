@@ -1,6 +1,6 @@
-<div class="d-flex justify-content-center p-2">
-  <div class="col-8">
-    {{#each blogData}}
+<div class="d-flex row justify-content-center p-2 text-center">
+  {{#each blogData}}
+    <div class="col-8">
       <a class="list-group-item" href="/blogs/{{id}}">
         <div class="card text-center">
           <div class="card-header">{{post_title}}</div>
@@ -16,19 +16,19 @@
           </div>
         </div>
       </a>
-    {{/each}}
+    </div>
+  {{/each}}
+  <div class="p-5 col-8">
+    <form class="new-blog-form p-3">
+      <div class="p-2">
+        <input type="text" class="form-control" placeholder="Title" id="post_title" />
+      </div>
+      <div class="p-2 py-2">
+        <input type="text" class="form-control" placeholder="Details" id="post_contents" />
+      </div>
+      <button class="btn btn-info" type="submit">Create New Post</button>
+    </form>
   </div>
-</div>
-<div class="p-5">
-  <form class="new-blog-form p-3">
-    <div class="p-2">
-      <input type="text" class="form-control" placeholder="Title" id="post_title" />
-    </div>
-    <div class="p-2 py-2">
-      <input type="text" class="form-control" placeholder="Details" id="post_contents" />
-    </div>
-    <button class="btn btn-info" type="submit">Add Blog</button>
-  </form>
 </div>
 
 <script src="/js/add-post.js"></script>
