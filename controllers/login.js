@@ -7,15 +7,8 @@ router.get("/", (req, res) => {
 });
 
 router.post("/", async (req, res) => {
-  try {
-    const newUser = await User.create({
-      username: req.body.username,
-      password: req.body.password,
-    });
-    res.status(200).json(newUser);
-  } catch (error) {
-    res.status(400).json(error);
-  }
+  const loginData = await User.create(req.body);
+  return res.json(loginData);
 });
 
 module.exports = router;

@@ -1,10 +1,12 @@
-const handleFormSubmit = async (event) => {
-  event.preventDefault();
+async function handleSignIn() {
+  // event.preventDefault();
+  const name = document.querySelector("#name").value.trim();
   const username = document.querySelector("#username").value.trim();
   const password = document.querySelector("#password").value.trim();
   const response = await fetch("/login", {
     method: "POST",
     body: JSON.stringify({
+      name,
       username,
       password,
     }),
@@ -13,20 +15,20 @@ const handleFormSubmit = async (event) => {
     },
   });
   if (response.ok) {
-    res.render("/blog");
+    document.location.replace("/blog");
   } else {
     alert("Failed to log in.");
   }
-};
+}
 
-const handleSignIn = async((event) => {
-  event.preventDefault();
-  const email = document.querySelector("#email-login").value.trim();
-  const password = document.querySelector("#password-login").value.trim();
-  if (email && password) {
-  }
-});
+// const handleSignIn = async((event) => {
+//   event.preventDefault();
+//   const email = document.querySelector("#email-login").value.trim();
+//   const password = document.querySelector("#password-login").value.trim();
+//   if (email && password) {
+//   }
+// });
 
 // Event
-document.querySelector(".signup-form").addEventListener("submit", handleFormSubmit);
-document.querySelector(".sign-in").addEventListener("submit", handleSignIn);
+document.querySelector(".signup-btn").addEventListener("click", handleSignIn);
+// document.querySelector(".sign-in").addEventListener("click", handleSignIn);
