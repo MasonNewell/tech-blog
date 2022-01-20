@@ -1,0 +1,12 @@
+[
+  {
+    "comment": "Hello Comment World",
+    "blog_id": "1",
+    "user_id": "1"
+  },
+  {
+    "comment": "Great post!",
+    "blog_id": "1",
+    "user_id": "2"
+  }
+]

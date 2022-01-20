@@ -26,5 +26,24 @@ async function updatePost(event) {
   }
 }
 
+// Add Comment to Blog
+async function addComment(event) {
+  const blog_id = event.target.id;
+  const comment = document.querySelector("#comment").value.trim();
+  const response = await fetch(`blogs/${id}`, {
+    method: "POST",
+    body: JSON.stringify({
+      comment,
+    }),
+    headers: { "Content-Type": "application/json" },
+  });
+  if (response.ok) {
+    document.location.replace("/blogs");
+  } else {
+    alert("Failed to add comment");
+  }
+}
+
+document.querySelector(".add-comment-btn").addEventListener("click", addComment);
 document.querySelector(".update-btn").addEventListener("click", updatePost);
 document.querySelector(".del-btn").addEventListener("click", handleDelete);

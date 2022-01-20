@@ -1,8 +1,14 @@
 [
   {
     "id": "1",
-    "name": "mike",
+    "name": "John",
     "username": "mikey1",
-    "password": "mike1password"
+    "password": "foreverMikey"
+  },
+  {
+    "id": "2",
+    "name": "James",
+    "username": "BestDev2022",
+    "password": "supersafepassword"
   }
 ]
