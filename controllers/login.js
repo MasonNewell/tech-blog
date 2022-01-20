@@ -3,12 +3,44 @@ const User = require("../models/User");
 
 // GET login
 router.get("/", (req, res) => {
+  if (req.session.loggedIn) {
+    res.redirect("/blogs");
+    return;
+  }
   res.render("login");
 });
 
-router.post("/", async (req, res) => {
+// Post new user signup
+router.post("/new", async (req, res) => {
   const loginData = await User.create(req.body);
   return res.json(loginData);
+});
+
+// Post Login-n
+router.post("/", async (req, res) => {
+  try {
+    const loginData = await User.findOne({
+      where: {
+        username: req.body.username,
+      },
+    });
+    if (!loginData) {
+      res.status(400).json({ message: "incorrect username" });
+      return;
+    }
+    const password = await loginData.checkPassword(req.body.password);
+    if (!password) {
+      res.status(400).json({ message: "invalid password" });
+      return;
+    }
+    await req.session.save(() => {
+      req.session.loggedIn = true;
+      res.status(200).json({ user: loginData, message: "Logged in!" });
+    });
+  } catch (error) {
+    console.log(error);
+    res.status(500).json(error);
+  }
 });
 
 module.exports = router;

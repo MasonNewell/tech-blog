@@ -3,8 +3,7 @@ const { User, Blog } = require("../models");
 const withAuth = require("../utils/auth.js");
 
 // GET All Blog Posts
-// ADD WITH AUTH
-router.get("/", async (req, res) => {
+router.get("/", withAuth, async (req, res) => {
   const allBlogs = await Blog.findAll({
     include: [{ model: User }],
   }).catch((error) => {
@@ -28,6 +27,7 @@ router.get("/:id", async (req, res) => {
     const blog = blogData.get({ plain: true });
     res.render("editBlog", {
       blog,
+      loggedIn: req.session.loggedIn,
       ...blog,
       // loggedIn: req.session.loggedIn
     });
