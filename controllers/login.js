@@ -1,7 +1,7 @@
 const router = require("express").Router();
 const User = require("../models/User");
 
-// GET login
+// login view
 router.get("/", (req, res) => {
   if (req.session.loggedIn) {
     res.redirect("/blogs");
@@ -10,13 +10,13 @@ router.get("/", (req, res) => {
   res.render("login");
 });
 
-// Post new user signup
+//  new user signup
 router.post("/new", async (req, res) => {
   const loginData = await User.create(req.body);
   return res.json(loginData);
 });
 
-// Post Login-n
+//  Login
 router.post("/", async (req, res) => {
   try {
     const loginData = await User.findOne({
