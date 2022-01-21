@@ -4,6 +4,11 @@ const handleDelete = async (event) => {
   const response = await fetch(`/blogs/${id}`, {
     method: "DELETE",
   });
+  if (response.ok) {
+    document.location.replace("/blogs");
+  } else {
+    alert("Failed to update blog");
+  }
 };
 
 // Update card
@@ -20,7 +25,7 @@ async function updatePost(event) {
     headers: { "Content-Type": "application/json" },
   });
   if (response.ok) {
-    document.location.replace("/blogs");
+    document.location.replace(`/blogs/${id}`);
   } else {
     alert("Failed to update blog");
   }
@@ -38,7 +43,7 @@ async function addComment(event) {
     headers: { "Content-Type": "application/json" },
   });
   if (response.ok) {
-    document.location.replace("/blogs");
+    document.location.replace(`/blogs/${id}`);
   } else {
     alert("Failed to add comment");
   }

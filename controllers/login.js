@@ -33,7 +33,7 @@ router.post("/", async (req, res) => {
       res.status(400).json({ message: "invalid password" });
       return;
     }
-    await req.session.save(() => {
+    req.session.save(() => {
       req.session.user_id = loginData.id;
       req.session.loggedIn = true;
       res.status(200).json({ user: loginData, message: "Logged in!" });
