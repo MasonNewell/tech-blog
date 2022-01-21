@@ -1,6 +1,6 @@
 module.exports = {
   log: function (foo) {
-    console.log(foo);
+    console.log(foo[0]);
   },
 
   format_date: function (date) {

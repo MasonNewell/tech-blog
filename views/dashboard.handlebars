@@ -1,12 +1,19 @@
-<div>
-  <p>
-    DB
-  </p>
-
+<div class="d-flex row justify-content-center text-center">
+  <h4>My Blog Posts: </h4>
   {{#each blogs as |blog|}}
-    <p>{{blog.post_title}}</p>
-    <p>{{blog.post_content}}</p>
-
+    <div class="rounded col-7">
+      <div class="card">
+        <div class="card-header">{{blog.post_title}}
+        </div>
+        <div class="card-body">
+          <div class="card-title">Posted on
+            {{blog.date_created}}
+          </div>
+          <p class="card-text">
+            {{blog.post_contents}}
+          </p>
+        </div>
+      </div>
+    </div>
   {{/each}}
-
 </div>
