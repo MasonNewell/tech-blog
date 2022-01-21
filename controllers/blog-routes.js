@@ -14,7 +14,7 @@ router.get("/", withAuth, async (req, res) => {
 });
 
 // GET one blog
-router.get("/:id", async (req, res) => {
+router.get("/:id", withAuth, async (req, res) => {
   try {
     const blogData = await Blog.findByPk(req.params.id, {
       include: [{ model: User }, { model: Comments }],

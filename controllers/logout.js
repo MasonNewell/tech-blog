@@ -7,6 +7,7 @@ router.get("/", async (req, res) => {
   } else {
     res.status(404).end();
   }
+  res.render("login");
 });
 
 module.exports = router;
