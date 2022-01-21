@@ -28,9 +28,9 @@ async function updatePost(event) {
 
 // Add Comment to Blog
 async function addComment(event) {
-  const blog_id = event.target.id;
+  const id = event.target.id;
   const comment = document.querySelector("#comment").value.trim();
-  const response = await fetch(`blogs/${id}`, {
+  const response = await fetch(`/blogs/${id}`, {
     method: "POST",
     body: JSON.stringify({
       comment,

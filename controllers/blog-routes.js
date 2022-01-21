@@ -80,14 +80,14 @@ router.put("/:id", async (req, res) => {
 // New Comment to Existing Blog
 router.post("/:id", async (req, res) => {
   try {
-    const commentData = await Comment.create({
-      // blog_id: req.body.blog_id,
+    const commentData = await Comments.create({
       comment: req.body.comment,
-      // user_id: req.session.user_id,
+      blog_id: req.params.id,
+      user_id: req.session.user_id,
     });
     res.status(200).json(commentData);
   } catch (error) {
-    res.status(500).json(error);
+    res.json(error);
   }
 });
 
