@@ -16,6 +16,22 @@ router.post("/new", async (req, res) => {
   return res.json(loginData);
 });
 
+// router.post("/new", async (req, res) => {
+//   try {
+//     const loginData = await User.create({
+//       name: req.body.name,
+//       username: req.body.username,
+//       password: req.body.password,
+//     });
+//     req.session.save(() => {
+//       req.session.loggedIn = true;
+//       res.status(200).json(loginData);
+//     });
+//   } catch (error) {
+//     res.status(500).json(error);
+//   }
+// });
+
 //  Login
 router.post("/", async (req, res) => {
   try {

@@ -1,9 +1,11 @@
 module.exports = {
   log: function (foo) {
-    console.log(foo[0]);
+    console.log(foo);
   },
 
-  format_date: function (date) {
-    return date.toLocaleTimeString();
+  format_date: (date) => {
+    return `${new Date(date).getMonth() + 1}/${new Date(date).getDate()}/${new Date(
+      date
+    ).getFullYear()}`;
   },
 };

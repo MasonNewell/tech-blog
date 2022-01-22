@@ -19,13 +19,14 @@
       </a>
     </div>
   {{/each}}
-  <div class="p-5 col-8">
+  <div class="col-6">
     <form class="new-blog-form p-3">
       <div class="p-2">
         <input type="text" class="form-control" placeholder="Title" id="post_title" />
       </div>
       <div class="p-2 py-2">
-        <input type="text" class="form-control" placeholder="Details" id="post_contents" />
+        {{! <input type="text" class="form-control" placeholder="Details" id="post_contents" /> }}
+        <textarea class="form-control" placeholder="Details" id="post_contents"></textarea>
       </div>
       <button class="btn btn-info" type="submit">Create New Post</button>
     </form>

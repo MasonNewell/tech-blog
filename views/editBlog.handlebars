@@ -7,7 +7,7 @@
         <div class="card-title">Posted by:
           {{user.name}}
           on
-          {{date_created}}
+          {{format_date date_created}}
         </div>
         <p class="card-text">
           {{post_contents}}
@@ -28,7 +28,7 @@
             <div class="card-body">
               <div class="card-title">
                 {{comment.comment}}
-                <div class="card-text">posted by {{comment.user_id}}</div>
+                {{!-- <div class="card-text">posted by {{comment.user.name}}</div> --}}
               </div>
             </div>
           </div>
