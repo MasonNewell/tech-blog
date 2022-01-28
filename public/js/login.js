@@ -17,7 +17,7 @@ async function handleSignIn() {
   if (response.ok) {
     document.location.replace("/blogs");
   } else {
-    alert("Failed to log in.");
+    alert("Failed to create account.");
   }
 }
 
@@ -36,9 +36,9 @@ async function handleLogin() {
     });
     if (response.ok) {
       document.location.replace("/blogs");
-    } else {
-      alert("Failed to Log in.");
     }
+  } else {
+    alert("Failed to Log in.");
   }
 }
 

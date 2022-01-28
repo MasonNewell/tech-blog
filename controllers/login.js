@@ -10,27 +10,22 @@ router.get("/", (req, res) => {
   res.render("login");
 });
 
-//  new user signup
 router.post("/new", async (req, res) => {
-  const loginData = await User.create(req.body);
-  return res.json(loginData);
+  try {
+    const loginData = await User.create({
+      name: req.body.name,
+      username: req.body.username,
+      password: req.body.password,
+    });
+    req.session.save(() => {
+      req.session.user_id = loginData.id;
+      req.session.loggedIn = true;
+      res.status(200).json(loginData);
+    });
+  } catch (error) {
+    res.status(500).json(error);
+  }
 });
-
-// router.post("/new", async (req, res) => {
-//   try {
-//     const loginData = await User.create({
-//       name: req.body.name,
-//       username: req.body.username,
-//       password: req.body.password,
-//     });
-//     req.session.save(() => {
-//       req.session.loggedIn = true;
-//       res.status(200).json(loginData);
-//     });
-//   } catch (error) {
-//     res.status(500).json(error);
-//   }
-// });
 
 //  Login
 router.post("/", async (req, res) => {
