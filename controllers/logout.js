@@ -6,7 +6,7 @@ router.get("/", async (req, res) => {
     req.session.destroy(() => res.status(200).end());
     res.render("login");
   } else {
-    res.status(400).end();
+    res.redirect("/");
   }
 });
 
