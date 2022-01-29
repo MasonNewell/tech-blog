@@ -14,10 +14,25 @@
           </p>
         </div>
       </div>
-      <button class="btn btn-warning del-btn" id={{id}}>Delete Post</button>
+      <button class="btn btn-warning del-btn" id="{{id}}">Delete Post</button>
     </div>
-
+    
+      {{! UPDATE }}
+  <div class="rounded col-6 py-2">
+    <form class="edit-blog-form">
+      <div class="py-2">
+        <label for="post_title">New Title:</label>
+        <input name="post_title" class="form-control" type="text" placeholder={{blog.post_title}} id="post_title" />
+      </div>
+      <div class="py-2">
+        <label for="post_contents">New Content Info:</label>
+        <input type="text" class="form-control" placeholder={{blog.post_contents}} name="post_contents" id="post_contents" />
+      </div>
+      <button class="btn btn-info update-btn" id="{{id}}">Update Post</button>
+    </form>
+  </div>
   {{/each}}
+</div>
 </div>
 
 <script src="/js/delete.js"></script>

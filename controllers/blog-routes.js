@@ -52,7 +52,7 @@ router.put("/:id", async (req, res) => {
     },
     {
       where: {
-        id: req.params.id,
+        id: req.body.id,
       },
     }
   );
