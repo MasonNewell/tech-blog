@@ -29,24 +29,6 @@ router.get("/:id", withAuth, async (req, res) => {
   }
 });
 
-// Delete a blog
-router.delete("/:id", async (req, res) => {
-  try {
-    const blogData = await Blog.destroy({
-      where: {
-        id: req.params.id,
-      },
-    });
-    if (!blogData) {
-      res.status(404).json({ message: "no blog with that id" });
-      return;
-    }
-    res.status(200).json(blogData);
-  } catch (error) {
-    res.status(500).json(error);
-  }
-});
-
 // New Blog
 router.post("/", async (req, res) => {
   try {

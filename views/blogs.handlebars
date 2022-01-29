@@ -7,7 +7,7 @@
           <div class="card-header">{{post_title}}</div>
           <div class="card-body">
             <div class="card-title">Posted by:
-              {{user.name}}
+              {{user.username}}
               on
               {{format_date date_created}}
             </div>
@@ -25,7 +25,6 @@
         <input type="text" class="form-control" placeholder="Title" id="post_title" />
       </div>
       <div class="p-2 py-2">
-        {{! <input type="text" class="form-control" placeholder="Details" id="post_contents" /> }}
         <textarea class="form-control" placeholder="Details" id="post_contents"></textarea>
       </div>
       <button class="btn btn-info" type="submit">Create New Post</button>

@@ -1,16 +1,3 @@
-// Deletes a blog
-const handleDelete = async (event) => {
-  const id = event.target.id;
-  const response = await fetch(`/blogs/${id}`, {
-    method: "DELETE",
-  });
-  if (response.ok) {
-    document.location.replace("/blogs");
-  } else {
-    alert("Failed to update blog");
-  }
-};
-
 // Update card
 async function updatePost(event) {
   const id = event.target.id;
@@ -51,4 +38,3 @@ async function addComment(event) {
 
 document.querySelector(".add-comment-btn").addEventListener("click", addComment);
 document.querySelector(".update-btn").addEventListener("click", updatePost);
-document.querySelector(".del-btn").addEventListener("click", handleDelete);
